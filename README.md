@@ -16,7 +16,7 @@ This repository is at the documentation and foundation stage. The application, d
 - No applicant accounts, CV uploads, identity-document collection or application fees in the initial scope.
 - No paid services, subscriptions, domains or billable features without explicit approval.
 
-See [Project charter](docs/PROJECT_CHARTER.md), [Architecture](docs/ARCHITECTURE.md), [Editorial workflow](docs/EDITORIAL_WORKFLOW.md), [Security and privacy](docs/SECURITY_AND_PRIVACY.md), [Data portability and backups](docs/DATA_PORTABILITY_AND_BACKUPS.md), and [Roadmap](docs/ROADMAP.md).
+See [Project charter](docs/PROJECT_CHARTER.md), [Architecture](docs/ARCHITECTURE.md), [Platform feasibility review](docs/PLATFORM_FEASIBILITY_2026-11-09.md), [Editorial workflow](docs/EDITORIAL_WORKFLOW.md), [Security and privacy](docs/SECURITY_AND_PRIVACY.md), [Data portability and backups](docs/DATA_PORTABILITY_AND_BACKUPS.md), and [Roadmap](docs/ROADMAP.md).
 
 ## Independence
 
