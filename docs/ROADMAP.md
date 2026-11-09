@@ -14,9 +14,9 @@ This roadmap is a plan, not evidence that the listed work has been completed. Wo
 
 ## Stage 2 — Architecture validation and zero-cost account checks
 
-- Verify current Astro, Cloudflare Workers and D1 compatibility and deployment path.
-- Check account onboarding, free-tier availability, payment-method requirements and overage behaviour before creating resources.
-- Record current quotas and safe limits with links and review date.
+- [x] Verify current Astro, Cloudflare Workers and D1 compatibility and deployment path (official documentation reviewed 2026-11-09; see [platform feasibility review](PLATFORM_FEASIBILITY_2026-11-09.md)).
+- [ ] Check account onboarding, free-tier availability, payment-method requirements and overage behaviour before creating resources (owner dashboard confirmation required).
+- [x] Record current quotas and safe limits with links and review date (reviewed 2026-11-09; recheck before provisioning and launch).
 - Confirm that no paid feature or automatic billing is enabled.
 - Define the application structure and server-side admin security design.
 - Do not provision resources if a payment prompt or paid commitment is required.
