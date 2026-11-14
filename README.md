@@ -6,7 +6,7 @@ An independent South African careers, education and skills-development opportuni
 
 ## Current project status
 
-This repository is at the documentation and foundation stage. The application, database, authentication, public website and deployment have **not** yet been implemented.
+The repository now contains the initial Astro/Workers application skeleton, a local D1 migration and data-access test foundation on the Phase 1 review branch. The implementation is not accepted until CI passes. Authentication, editorial workflows, public listings and deployment have **not** been implemented.
 
 - Initial development budget: **R0.00**.
 - Initial repository: GitHub.
@@ -16,7 +16,7 @@ This repository is at the documentation and foundation stage. The application, d
 - No applicant accounts, CV uploads, identity-document collection or application fees in the initial scope.
 - No paid services, subscriptions, domains or billable features without explicit approval.
 
-See [Project charter](docs/PROJECT_CHARTER.md), [Architecture](docs/ARCHITECTURE.md), [Platform feasibility review](docs/PLATFORM_FEASIBILITY_2026-11-09.md), [Editorial workflow](docs/EDITORIAL_WORKFLOW.md), [Security and privacy](docs/SECURITY_AND_PRIVACY.md), [Data portability and backups](docs/DATA_PORTABILITY_AND_BACKUPS.md), and [Roadmap](docs/ROADMAP.md).
+See [Phase 1 implementation](docs/PHASE_1_IMPLEMENTATION.md), [Project charter](docs/PROJECT_CHARTER.md), [Architecture](docs/ARCHITECTURE.md), [Platform feasibility review](docs/PLATFORM_FEASIBILITY_2026-11-09.md), [Editorial workflow](docs/EDITORIAL_WORKFLOW.md), [Security and privacy](docs/SECURITY_AND_PRIVACY.md), [Data portability and backups](docs/DATA_PORTABILITY_AND_BACKUPS.md), and [Roadmap](docs/ROADMAP.md).
 
 ## Independence
 
