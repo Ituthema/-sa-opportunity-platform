@@ -31,7 +31,7 @@ This roadmap is a plan, not evidence that the listed work has been completed. Wo
 ## Stage 3 — Phase 1: Minimal application and D1 foundation (in review)
 
 - [x] Add a minimal Astro 7 application and compatible pinned `@astrojs/cloudflare@14` adapter (CI validation pending).
-- [x] Configure Node.js 22.12 or later in GitHub-hosted CI.
+- [x] Configure Node.js 22.23.4 or later in GitHub-hosted CI to satisfy the selected Astro release engine requirement.
 - [x] Add explicit Cloudflare adapter configuration and disable Astro Sessions to prevent unapproved Workers KV provisioning.
 - [x] Add a Wrangler configuration example with a deliberately invalid local-only D1 ID, no secrets and no deployment workflow.
 - [x] Add a provider-isolated, parameterised D1 read layer and ordered SQLite-compatible initial migration for `careeropportunities`.
