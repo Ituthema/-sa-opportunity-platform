@@ -28,19 +28,21 @@ This roadmap is a plan, not evidence that the listed work has been completed. Wo
 
 **Stage 2 exit:** Repository and public technical-feasibility audit complete. Account-specific rechecks remain a deployment gate, not permission to create or upgrade resources.
 
-## Stage 3 — Minimal application skeleton (next)
+## Stage 3 — Phase 1: Minimal application and D1 foundation (in review)
 
-- Create the minimal Astro application using mutually compatible, pinned Astro 7 and `@astrojs/cloudflare@14` versions, subject to build validation.
-- Use Node.js 22.12 or later in the build/test environment.
-- Add explicit Cloudflare adapter configuration; disable Astro Sessions initially so deployment cannot automatically provision an unapproved Workers KV namespace.
-- Add Wrangler configuration examples with no secrets and no automatic deployment.
-- Add a provider-isolated D1 data-access layer and ordered SQL migrations for the existing `careeropportunities` database.
-- Add local D1 migration and data-access tests.
-- Add GitHub Actions CI using standard runners only; run build, type checks, tests and migration checks without production secrets or deployment.
-- Add safe environment-variable examples, `.gitignore`, contribution/task guidance and a basic health check.
-- Keep public and admin route boundaries explicit; no real credentials, real opportunities or public publishing yet.
-- Benchmark representative Worker CPU use early, especially server rendering and password hashing, against the 10 ms Free limit.
-- No production deployment or additional Cloudflare resource provisioning in this stage.
+- [x] Add a minimal Astro 7 application and compatible pinned `@astrojs/cloudflare@14` adapter (CI validation pending).
+- [x] Configure Node.js 22.23.4 or later in GitHub-hosted CI to satisfy the selected Astro release engine requirement.
+- [x] Add explicit Cloudflare adapter configuration and disable Astro Sessions to prevent unapproved Workers KV provisioning.
+- [x] Add a Wrangler configuration example with a deliberately invalid local-only D1 ID, no secrets and no deployment workflow.
+- [x] Add a provider-isolated, parameterised D1 read layer and ordered SQLite-compatible initial migration for `careeropportunities`.
+- [x] Add local D1 migration command and Node built-in data-access tests (CI validation pending).
+- [x] Add GitHub Actions CI on standard hosted runners for checks, tests, local migration and build; no production secrets or deployment (CI validation pending).
+- [x] Add a safe environment example, `.gitignore`, `AGENTS.md` working rules and a generic D1 health endpoint.
+- [x] Keep the initial public shell separate from future admin routes; no credentials, real opportunities or public publishing.
+- [ ] Benchmark representative Worker CPU use, especially SSR and password hashing, against the 10 ms Free limit before production use.
+- [x] No production deployment or additional Cloudflare resource provisioning in this stage.
+
+**Phase 1 acceptance remains pending until the pull-request CI run passes and the implementation is reviewed.** The remote database identity and binding remain unverified; the Wrangler database ID is a local-only placeholder.
 
 ## Stage 4 — Secure admin foundation
 
