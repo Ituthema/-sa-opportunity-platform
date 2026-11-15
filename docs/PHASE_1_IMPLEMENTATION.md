@@ -9,7 +9,7 @@
 - A placeholder database ID in Wrangler configuration for local-only work. It is deliberately not a usable production identifier.
 - One initial SQLite-compatible opportunity schema migration.
 - Provider-isolated, parameterised read operations that return published records only.
-- A generic database health endpoint that does not expose operational error details.
+- A generic database health endpoint that does not expose operational error details. Cloudflare bindings are imported through the current `cloudflare:workers` API, with types generated from Wrangler configuration.
 - Node built-in tests for the data-access layer.
 - GitHub Actions validation on standard hosted runners; no deploy job, secrets or Cloudflare account access.
 

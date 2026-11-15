@@ -1,11 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sa-opportunity-platform",
-  "main": "./dist/_worker.js/index.js",
+  "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-11-14",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": "./dist/client",
+    "directory": "./dist",
     "binding": "ASSETS"
   },
   "workers_dev": false,
