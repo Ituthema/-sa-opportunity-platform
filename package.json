@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "wrangler types && astro check",
     "test": "node --test",
     "db:migrate:local": "wrangler d1 migrations apply careeropportunities --local --config wrangler.jsonc",
     "validate": "npm run check && npm test && npm run db:migrate:local && npm run build"
