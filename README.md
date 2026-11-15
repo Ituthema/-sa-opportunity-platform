@@ -6,7 +6,9 @@ An independent South African careers, education and skills-development opportuni
 
 ## Current project status
 
-The repository now contains the initial Astro/Workers application skeleton, a local D1 migration and data-access test foundation on the Phase 1 review branch. The implementation is not accepted until CI passes. Authentication, editorial workflows, public listings and deployment have **not** been implemented.
+**Phase 1 foundation is merged into `main` and its GitHub Actions validation has passed.** The repository now contains a minimal Astro/Cloudflare Workers application, an initial portable D1 schema migration, a provider-isolated published-record read layer, a database health route, and automated checks.
+
+This is a technical foundation, not a launch-ready platform. Authentication, roles, private editorial screens, opportunity-entry and verification workflows, public listing/search pages, production database connectivity and deployment have **not** been implemented or approved.
 
 - Initial development budget: **R0.00**.
 - Initial repository: GitHub.
