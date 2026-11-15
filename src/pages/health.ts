@@ -1,10 +1,11 @@
+import { env } from "cloudflare:workers";
 import type { APIRoute } from "astro";
 
 export const prerender = false;
 
-export const GET: APIRoute = async ({ locals }) => {
+export const GET: APIRoute = async () => {
   try {
-    await locals.runtime.env.DB.prepare("SELECT 1 AS ok").first();
+    await env.DB.prepare("SELECT 1 AS ok").first();
     return new Response(JSON.stringify({ status: "ok", database: "reachable" }), {
       status: 200,
       headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
