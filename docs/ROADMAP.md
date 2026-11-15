@@ -41,16 +41,52 @@ This roadmap is a plan, not evidence that the listed work has been completed. Wo
 - [ ] Benchmark representative Worker CPU use, especially SSR and future password hashing, against the 10 ms Free limit before production use.
 - [x] No production deployment or additional Cloudflare resource provisioning in this stage.
 
-**Phase 1 exit:** The implementation is merged into `main`; PR #4 CI passed (type generation, Astro checks, four tests, local D1 migration and build), and the implementation was reviewed. The local migration used no remote database. This completes the scoped foundation only; it does not establish production readiness.
+**Phase 1 exit:** The implementation is merged into `main`; PR #4 CI passed (type generation, Astro checks, four tests, local D1 migration and build), and the implementation was reviewed. PR #5 reconciled the README and roadmap after validation. The local migration used no remote database. This completes the scoped foundation only; it does not establish production readiness.
 
-## Stage 4 — Secure admin foundation
+## Stage 4 — Secure admin foundation (planning complete; implementation not started)
 
-- Implement server-side authentication, revocable session handling, CSRF protection, login throttling and roles.
-- Select and benchmark a maintained password-hashing implementation compatible with the Workers runtime and Free CPU budget.
-- Test access controls and unauthorised requests.
-- Implement security-relevant audit logging without recording secrets.
-- Add a private draft-entry workflow.
-- Do not enter real credentials or operational data until security gates pass.
+The detailed design, decision gates and acceptance criteria are in [Stage 4 Secure Admin Foundation Plan](STAGE_4_SECURE_ADMIN_PLAN.md).
+
+### 4.1 — Threat model and design decisions
+- [ ] Document assets, trust boundaries and abuse cases.
+- [ ] Define exact admin page and admin API route boundaries.
+- [ ] Compare Cloudflare Access and application-managed authentication.
+- [ ] Record an architecture decision before implementation.
+
+### 4.2 — Free-tier and runtime feasibility
+- [ ] Recheck current Workers Free and D1 limits.
+- [ ] Verify Access Free eligibility and account-specific setup requirements without enabling it.
+- [ ] Test local Astro identity-context integration with mocked identity.
+- [ ] Benchmark any proposed password KDF; never lower security parameters to fit a CPU limit.
+- [ ] Do not deploy a benchmark Worker or configure Access without separate approval.
+
+### 4.3 — Schema and provider boundary
+- [ ] Design local migrations for admin identities, roles, optional sessions and audit events.
+- [ ] Keep identity-provider mapping separate from provider-neutral authorisation.
+- [ ] Add portable constraints, indexes, relationships and retention rules.
+
+### 4.4 — Server-side authentication and authorisation
+- [ ] Protect every admin page and API route on the server.
+- [ ] Implement least-privilege role checks for every sensitive action.
+- [ ] Deny inactive or unmapped identities.
+- [ ] Implement session/revocation and CSRF controls appropriate to the selected method.
+- [ ] Preserve public access only to approved published records.
+
+### 4.5 — Security tests and review
+- [ ] Test unauthenticated, inactive, unmapped and insufficient-role requests.
+- [ ] Test direct API calls, forged identity headers, CSRF, expiry/revocation and logout.
+- [ ] Test audit completeness and secret redaction.
+- [ ] Confirm public pages cannot expose drafts or admin data.
+- [ ] Pass CI and a documented security review.
+
+### 4.6 — Acceptance and later deployment gate
+- [ ] Obtain human review of the design and implementation.
+- [ ] Confirm free-tier and billing position.
+- [ ] Document account recovery, revocation, backups and incident response.
+- [ ] Keep production credentials and real editorial records out until security acceptance.
+- [ ] Obtain separate approval before deployment, Access account configuration, remote D1 migration or paid-service activation.
+
+**Stage 4 status:** Planning is recorded; no authentication code, account configuration, migration or deployment has been performed. The current recommendation is to evaluate narrowly scoped Cloudflare Access for admin paths first, while retaining application-owned roles and audit history. Adoption remains conditional on Free eligibility, account setup, path coverage and successful Astro integration tests.
 
 ## Stage 5 — Editorial and listing management
 
