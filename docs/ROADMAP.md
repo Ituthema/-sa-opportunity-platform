@@ -10,14 +10,13 @@ This roadmap is a plan, not evidence that the listed work has been completed. Wo
 - [x] Define human verification and publication workflow.
 - [x] Define security, privacy, portability and backup requirements.
 - [x] Confirm current repository name and public visibility are accepted for this stage (owner explicitly approved proceeding with the existing repository as-is).
-- [x] Record project documentation links and repository working rules.
-- [ ] Add implementation-specific contribution and task rules alongside the first application structure.
+- [x] Record project documentation links and repository working rules, including implementation-specific guidance in `AGENTS.md`.
 
 ## Stage 2 — Phase 0: Repository audit and technical feasibility
 
 - [x] Revalidate repository metadata, default branch, visibility, latest commit, branches and merged pull requests (audit 2026-11-14).
 - [x] Inspect project charter, architecture, editorial workflow, security, portability, roadmap and README.
-- [x] Check for existing application manifests, framework configuration, Wrangler configuration, ignore rules and CI workflows; none were found at the checked paths on `main`.
+- [x] Check for existing application manifests, framework configuration, Wrangler configuration, ignore rules and CI workflows; none were found at the checked paths on `main` at the time of the audit.
 - [x] Refresh official Astro, Cloudflare Workers and D1 documentation review (2026-11-14; see [Phase 0 audit](PHASE_0_AUDIT_2026-11-14.md)).
 - [x] Record current Workers and D1 Free limits, quota exhaustion behaviour and the 10 ms CPU risk.
 - [x] Record owner-reported Cloudflare account state: Workers Free accessible, `workers.dev` subdomain available, D1 project database `careeropportunities` created, Billing page accessible and no paid plan/add-on reported active. This is not independent account API verification.
@@ -28,21 +27,21 @@ This roadmap is a plan, not evidence that the listed work has been completed. Wo
 
 **Stage 2 exit:** Repository and public technical-feasibility audit complete. Account-specific rechecks remain a deployment gate, not permission to create or upgrade resources.
 
-## Stage 3 — Phase 1: Minimal application and D1 foundation (in review)
+## Stage 3 — Phase 1: Minimal application and D1 foundation (delivered)
 
-- [x] Add a minimal Astro 7 application and compatible pinned `@astrojs/cloudflare@14` adapter (CI validation pending).
+- [x] Add a minimal Astro 7 application and compatible pinned `@astrojs/cloudflare@14` adapter.
 - [x] Configure Node.js 22.23.4 or later in GitHub-hosted CI to satisfy the selected Astro release engine requirement.
 - [x] Add explicit Cloudflare adapter configuration and disable Astro Sessions to prevent unapproved Workers KV provisioning.
 - [x] Add a Wrangler configuration example with a deliberately invalid local-only D1 ID, no secrets and no deployment workflow.
 - [x] Add a provider-isolated, parameterised D1 read layer and ordered SQLite-compatible initial migration for `careeropportunities`.
-- [x] Add local D1 migration command and Node built-in data-access tests (CI validation pending).
-- [x] Add GitHub Actions CI on standard hosted runners for checks, tests, local migration and build; no production secrets or deployment (CI validation pending).
+- [x] Add local D1 migration command and Node built-in data-access tests.
+- [x] Add GitHub Actions CI on standard hosted runners for type generation, checks, tests, local migration and build; no production secrets or deployment.
 - [x] Add a safe environment example, `.gitignore`, `AGENTS.md` working rules and a generic D1 health endpoint.
 - [x] Keep the initial public shell separate from future admin routes; no credentials, real opportunities or public publishing.
-- [ ] Benchmark representative Worker CPU use, especially SSR and password hashing, against the 10 ms Free limit before production use.
+- [ ] Benchmark representative Worker CPU use, especially SSR and future password hashing, against the 10 ms Free limit before production use.
 - [x] No production deployment or additional Cloudflare resource provisioning in this stage.
 
-**Phase 1 acceptance remains pending until the pull-request CI run passes and the implementation is reviewed.** The remote database identity and binding remain unverified; the Wrangler database ID is a local-only placeholder.
+**Phase 1 exit:** The implementation is merged into `main`; PR #4 CI passed (type generation, Astro checks, four tests, local D1 migration and build), and the implementation was reviewed. The local migration used no remote database. This completes the scoped foundation only; it does not establish production readiness.
 
 ## Stage 4 — Secure admin foundation
 
