@@ -6,19 +6,21 @@ An independent South African careers, education and skills-development opportuni
 
 ## Current project status
 
-**Phase 1 foundation is merged into `main` and its GitHub Actions validation has passed.** The repository now contains a minimal Astro/Cloudflare Workers application, an initial portable D1 schema migration, a provider-isolated published-record read layer, a database health route, and automated checks.
+**Phase 1 foundation is merged into `main` and its GitHub Actions validation has passed.** The repository contains a minimal Astro/Cloudflare Workers application, an initial portable D1 schema migration, a provider-isolated published-record read layer, a database health route, and automated checks.
+
+**Stage 4 secure-admin planning is recorded; implementation has not started.** The plan evaluates Cloudflare Access as a possible external authentication gate for admin paths, with application-owned roles and audit history. No Access application has been configured, no authentication code or admin migration has been added, and no deployment has been performed.
 
 This is a technical foundation, not a launch-ready platform. Authentication, roles, private editorial screens, opportunity-entry and verification workflows, public listing/search pages, production database connectivity and deployment have **not** been implemented or approved.
 
 - Initial development budget: **R0.00**.
 - Initial repository: GitHub.
 - Initial architecture direction: Astro for the web application, Cloudflare Workers for server-side execution, and Cloudflare D1 for the first relational database.
-- Public website and private editorial administration are separate interfaces within one platform and must share a properly secured backend.
+- Public website and private editorial administration are separate interfaces and must share a properly secured backend.
 - No AI-dependent workflow and no automatic factual verification or publication.
 - No applicant accounts, CV uploads, identity-document collection or application fees in the initial scope.
 - No paid services, subscriptions, domains or billable features without explicit approval.
 
-See [Phase 1 implementation](docs/PHASE_1_IMPLEMENTATION.md), [Project charter](docs/PROJECT_CHARTER.md), [Architecture](docs/ARCHITECTURE.md), [Platform feasibility review](docs/PLATFORM_FEASIBILITY_2026-11-09.md), [Editorial workflow](docs/EDITORIAL_WORKFLOW.md), [Security and privacy](docs/SECURITY_AND_PRIVACY.md), [Data portability and backups](docs/DATA_PORTABILITY_AND_BACKUPS.md), and [Roadmap](docs/ROADMAP.md).
+See [Phase 1 implementation](docs/PHASE_1_IMPLEMENTATION.md), [Stage 4 secure admin plan](docs/STAGE_4_SECURE_ADMIN_PLAN.md), [Project charter](docs/PROJECT_CHARTER.md), [Architecture](docs/ARCHITECTURE.md), [Platform feasibility review](docs/PLATFORM_FEASIBILITY_2026-11-09.md), [Editorial workflow](docs/EDITORIAL_WORKFLOW.md), [Security and privacy](docs/SECURITY_AND_PRIVACY.md), [Data portability and backups](docs/DATA_PORTABILITY_AND_BACKUPS.md), and [Roadmap](docs/ROADMAP.md).
 
 ## Independence
 
@@ -34,7 +36,7 @@ Only a human reviewer may decide whether an opportunity's facts are accurate, wh
 
 ## Public repository notice
 
-This repository is currently public. Do not commit passwords, API tokens, private keys, personal applicant information, private evidence files, production secrets or confidential operational data. The project owner has instructed work to proceed with the repository in its current state. Public visibility is not a reason to weaken application security or expose future admin data.
+This repository is currently public. Do not commit passwords, API tokens, private keys, production secrets, personal applicant information, private evidence files or confidential operational data. Public visibility is not a reason to weaken application security or expose future admin data.
 
 ## Contributing and changes
 
