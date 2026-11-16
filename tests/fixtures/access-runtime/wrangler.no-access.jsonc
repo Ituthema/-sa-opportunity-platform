@@ -1,5 +1,4 @@
 {
-  "$schema": "../../../../node_modules/wrangler/config-schema.json",
   "name": "saop-no-access-fixture",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-11-14",
