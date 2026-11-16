@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "saop-access-runtime-assets",
+  "main": "./tests/fixtures/access-runtime/dist/_worker.js/index.js",
+  "compatibility_date": "2026-11-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./tests/fixtures/access-runtime/dist",
+    "binding": "ASSETS"
+  },
+  "workers_dev": false,
+  "preview_urls": false,
+  "access": {
+    "dev": {
+      "aud": "saop-local-feasibility-test",
+      "identity": {
+        "email": "access-test@example.invalid",
+        "name": "Local Access Test"
+      }
+    }
+  }
+}
