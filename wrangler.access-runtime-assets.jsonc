@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "saop-access-runtime-assets",
-  "main": "@astrojs/cloudflare/entrypoints/server",
+  "main": "./tests/fixtures/access-runtime/dist/_worker.js/index.js",
   "compatibility_date": "2026-11-14",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
