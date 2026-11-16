@@ -149,13 +149,6 @@ If Access handles login, verify the Access policy, allowed identities, session d
 - [ ] Do not implement the password fallback unless Access is unsuitable; if considered, benchmark a maintained OWASP-recommended password KDF. Never lower security parameters to fit a CPU limit.
 - [x] No deployment, Access application configuration or new Cloudflare resource was created for this research.
 
-### 4.2 — Free-tier and runtime feasibility
-- [ ] Recheck current Workers Free CPU, memory, request and D1 limits.
-- [ ] Verify the current Access Free eligibility and account-specific setup requirements without enabling it.
-- [ ] Test the Astro/Cloudflare adapter's local identity-context integration using mocked identity only.
-- [ ] If the fallback is considered, benchmark a maintained OWASP-recommended password KDF. Local emulator timing is preliminary only; it is not proof of deployed Worker CPU time.
-- [ ] Do not deploy a benchmark Worker or configure an Access application without separate approval.
-
 ### 4.3 — Schema and provider boundary
 - [ ] Design portable local migrations for admin identities, role assignments, sessions if needed, and audit events.
 - [ ] Keep provider identity mapping behind a small authentication adapter.
