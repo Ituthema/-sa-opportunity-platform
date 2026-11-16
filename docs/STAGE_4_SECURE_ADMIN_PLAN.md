@@ -1,6 +1,8 @@
 # Stage 4 — Secure Admin Foundation Plan
 
-**Status: Planning only. No authentication code, secrets, Cloudflare Access application, database migration, deployment or account configuration has been created by this plan.**
+**Status: Design and official-documentation review prepared; implementation not started. No authentication code, secrets, Cloudflare Access application, database migration, deployment or account configuration has been created.**
+
+Design artefacts: [Admin threat model](ADMIN_THREAT_MODEL.md) · [ADR-0001: Conditional Cloudflare Access recommendation](adr/0001-cloudflare-access-admin-auth.md). The ADR is conditional and requires owner review plus account-specific and local-runtime checks before implementation.
 
 ## 1. Objective
 
@@ -134,18 +136,18 @@ If Access handles login, verify the Access policy, allowed identities, session d
 ## 9. Implementation sequence
 
 ### 4.1 — Threat model and design decisions
-- [ ] Document assets, trust boundaries, likely threats and abuse cases.
-- [ ] Confirm exact public and admin route boundaries, including admin API endpoints.
+- [x] Draft the initial assets, trust boundaries, threats and abuse cases in [ADMIN_THREAT_MODEL.md](ADMIN_THREAT_MODEL.md).
+- [x] Propose public and admin route boundaries, including the admin API namespace; final route inventory remains a pre-implementation task.
 - [ ] Confirm the intended initial owner identity and future editor model without committing personal secrets.
-- [ ] Compare Cloudflare Access with application-managed authentication for cost, identity method, portability, operational burden and security.
-- [ ] Record an Architecture Decision Record (ADR) before implementation.
+- [x] Compare Cloudflare Access with application-managed authentication and third-party identity; see [ADR-0001](adr/0001-cloudflare-access-admin-auth.md).
+- [x] Record a conditional Architecture Decision Record. It is not an approved account-configuration decision.
 
 ### 4.2 — Free-tier and runtime feasibility
-- [ ] Recheck current Workers Free CPU, memory, request and D1 limits.
-- [ ] Verify the current Access Free eligibility and account-specific setup requirements without enabling it.
-- [ ] Test the Astro/Cloudflare adapter's local identity-context integration using mocked identity only.
-- [ ] If the fallback is considered, benchmark a maintained OWASP-recommended password KDF. Local emulator timing is preliminary only; it is not proof of deployed Worker CPU time.
-- [ ] Do not deploy a benchmark Worker or configure an Access application without separate approval.
+- [x] Recheck published Workers Free CPU/request limits and current Cloudflare Access/Workers integration documentation on 2026-11-16; official references are recorded in ADR-0001.
+- [ ] Verify Access Free eligibility, identity-provider availability and account-specific billing requirements in the actual account without enabling it.
+- [ ] Test the Astro adapter's local identity-context integration using Wrangler's local Access simulation and mocked identity only.
+- [ ] Do not implement the password fallback unless Access is unsuitable; if considered, benchmark a maintained OWASP-recommended password KDF. Never lower security parameters to fit a CPU limit.
+- [x] No deployment, Access application configuration or new Cloudflare resource was created for this research.
 
 ### 4.3 — Schema and provider boundary
 - [ ] Design portable local migrations for admin identities, role assignments, sessions if needed, and audit events.

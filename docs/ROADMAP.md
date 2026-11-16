@@ -45,22 +45,23 @@ This roadmap is a plan, not evidence that the listed work has been completed. Wo
 
 The [Phase 1 technical implementation and acceptance specification](PHASE_1_TECHNICAL_ACCEPTANCE_SPEC.md) records the exact file map, task traceability, validation commands, acceptance evidence and explicit out-of-scope boundaries. Use it as the baseline when reviewing changes to the Phase 1 foundation; do not repeat completed work or add future features prematurely.
 
-## Stage 4 — Secure admin foundation (planning complete; implementation not started)
+## Stage 4 — Secure admin foundation (design underway; implementation not started)
 
-The detailed design, decision gates and acceptance criteria are in [Stage 4 Secure Admin Foundation Plan](STAGE_4_SECURE_ADMIN_PLAN.md).
+The detailed plan is in [Stage 4 Secure Admin Foundation Plan](STAGE_4_SECURE_ADMIN_PLAN.md). The initial [admin threat model](ADMIN_THREAT_MODEL.md) and [ADR-0001 conditional Cloudflare Access recommendation](adr/0001-cloudflare-access-admin-auth.md) have been drafted. These documents do not authorise Cloudflare account configuration or deployment.
 
 ### 4.1 — Threat model and design decisions
-- [ ] Document assets, trust boundaries and abuse cases.
-- [ ] Define exact admin page and admin API route boundaries.
-- [ ] Compare Cloudflare Access and application-managed authentication.
-- [ ] Record an architecture decision before implementation.
+- [x] Draft assets, trust boundaries and abuse cases in `ADMIN_THREAT_MODEL.md`.
+- [x] Propose `/admin/*` and `/api/admin/*` as the initial protected namespaces; exact route inventory remains a pre-implementation gate.
+- [ ] Confirm the initial owner identity and future editor model.
+- [x] Compare Access, application-managed authentication and third-party identity.
+- [x] Record conditional ADR-0001; owner approval is still required.
 
 ### 4.2 — Free-tier and runtime feasibility
-- [ ] Recheck current Workers Free and D1 limits.
-- [ ] Verify Access Free eligibility and account-specific setup requirements without enabling it.
-- [ ] Test local Astro identity-context integration with mocked identity.
-- [ ] Benchmark any proposed password KDF; never lower security parameters to fit a CPU limit.
-- [ ] Do not deploy a benchmark Worker or configure Access without separate approval.
+- [x] Review current official Workers CPU/request limits and Access/Astro integration documentation (2026-11-16; sources in ADR-0001).
+- [ ] Verify Access Free eligibility and account-specific setup/billing requirements without enabling it.
+- [ ] Test local Astro identity-context integration with mocked identity using Wrangler local Access simulation.
+- [ ] Benchmark an OWASP-recommended password KDF only if the fallback is considered; never weaken parameters to fit a CPU limit.
+- [x] No deployment, benchmark Worker, Access configuration or new Cloudflare resource has been created.
 
 ### 4.3 — Schema and provider boundary
 - [ ] Design local migrations for admin identities, roles, optional sessions and audit events.
