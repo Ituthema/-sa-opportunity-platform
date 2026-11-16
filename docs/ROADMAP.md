@@ -43,6 +43,8 @@ This roadmap is a plan, not evidence that the listed work has been completed. Wo
 
 **Phase 1 exit:** The implementation is merged into `main`; PR #4 CI passed (type generation, Astro checks, four tests, local D1 migration and build), and the implementation was reviewed. PR #5 reconciled the README and roadmap after validation. The local migration used no remote database. This completes the scoped foundation only; it does not establish production readiness.
 
+The [Phase 1 technical implementation and acceptance specification](PHASE_1_TECHNICAL_ACCEPTANCE_SPEC.md) records the exact file map, task traceability, validation commands, acceptance evidence and explicit out-of-scope boundaries. Use it as the baseline when reviewing changes to the Phase 1 foundation; do not repeat completed work or add future features prematurely.
+
 ## Stage 4 — Secure admin foundation (planning complete; implementation not started)
 
 The detailed design, decision gates and acceptance criteria are in [Stage 4 Secure Admin Foundation Plan](STAGE_4_SECURE_ADMIN_PLAN.md).

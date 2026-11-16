@@ -20,7 +20,7 @@ This is a technical foundation, not a launch-ready platform. Authentication, rol
 - No applicant accounts, CV uploads, identity-document collection or application fees in the initial scope.
 - No paid services, subscriptions, domains or billable features without explicit approval.
 
-See [Phase 1 implementation](docs/PHASE_1_IMPLEMENTATION.md), [Stage 4 secure admin plan](docs/STAGE_4_SECURE_ADMIN_PLAN.md), [Project charter](docs/PROJECT_CHARTER.md), [Architecture](docs/ARCHITECTURE.md), [Platform feasibility review](docs/PLATFORM_FEASIBILITY_2026-11-09.md), [Editorial workflow](docs/EDITORIAL_WORKFLOW.md), [Security and privacy](docs/SECURITY_AND_PRIVACY.md), [Data portability and backups](docs/DATA_PORTABILITY_AND_BACKUPS.md), and [Roadmap](docs/ROADMAP.md).
+See [Phase 1 technical acceptance specification](docs/PHASE_1_TECHNICAL_ACCEPTANCE_SPEC.md), [Phase 1 implementation](docs/PHASE_1_IMPLEMENTATION.md), [Stage 4 secure admin plan](docs/STAGE_4_SECURE_ADMIN_PLAN.md), [Project charter](docs/PROJECT_CHARTER.md), [Architecture](docs/ARCHITECTURE.md), [Platform feasibility review](docs/PLATFORM_FEASIBILITY_2026-11-09.md), [Editorial workflow](docs/EDITORIAL_WORKFLOW.md), [Security and privacy](docs/SECURITY_AND_PRIVACY.md), [Data portability and backups](docs/DATA_PORTABILITY_AND_BACKUPS.md), and [Roadmap](docs/ROADMAP.md).
 
 ## Independence
 
