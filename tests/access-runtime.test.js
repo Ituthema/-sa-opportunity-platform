@@ -5,7 +5,7 @@ import { test } from "node:test";
 
 const root = process.cwd();
 const fixture = "tests/fixtures/access-runtime";
-const astro = "node_modules/astro/astro.js";
+const wrangler = "node_modules/wrangler/bin/wrangler.js";
 
 function run(command, args) {
   const result = spawnSync(command, args, {
@@ -18,27 +18,21 @@ function run(command, args) {
   }
 }
 
-async function withPreview(config, port, callback) {
+async function withWorker(config, port, callback) {
   const child = spawn(
     process.execPath,
     [
-      astro,
-      "preview",
-      "--root",
-      fixture,
-      "--host",
+      wrangler,
+      "dev",
+      "--config",
+      config,
+      "--local",
+      "--ip",
       "127.0.0.1",
       "--port",
       String(port),
     ],
-    {
-      cwd: root,
-      env: {
-        ...process.env,
-        SAOP_ACCESS_WRANGLER_CONFIG: config,
-      },
-      stdio: "inherit",
-    },
+    { cwd: root, stdio: "inherit" },
   );
 
   try {
@@ -48,7 +42,7 @@ async function withPreview(config, port, callback) {
 
     for (let attempt = 0; attempt < 60; attempt += 1) {
       if (child.exitCode !== null) {
-        throw new Error(`Astro preview exited early with code ${child.exitCode}`);
+        throw new Error(`Wrangler exited early with code ${child.exitCode}`);
       }
       try {
         response = await fetch(url);
@@ -60,7 +54,7 @@ async function withPreview(config, port, callback) {
     }
 
     if (!response) {
-      throw new Error(`Astro preview did not become ready: ${lastError}`);
+      throw new Error(`Wrangler did not become ready: ${lastError}`);
     }
 
     assert.equal(response.status, 200);
@@ -79,21 +73,23 @@ test("Astro Cloudflare Access context feasibility", async (t) => {
   run("npx", ["--no-install", "astro", "build", "--root", fixture]);
 
   await t.test("without an Access simulation, context is absent", async () => {
-    await withPreview("wrangler.no-access.jsonc", 8791, async (body) => {
+    await withWorker("wrangler.access-runtime-no-access.jsonc", 8791, async (body) => {
       assert.equal(body.accessAvailable, false);
       assert.equal(body.identityEmail, null);
     });
   });
 
   await t.test("Access simulation with Static Assets", async () => {
-    await withPreview("wrangler.access-assets.jsonc", 8792, async (body) => {
+    await withWorker("wrangler.access-runtime-assets.jsonc", 8792, async (body) => {
+      // Cloudflare documents that the Static Assets router does not pass
+      // ctx.access to the application Worker.
       assert.equal(body.accessAvailable, false);
       assert.equal(body.identityEmail, null);
     });
   });
 
   await t.test("Access simulation without Static Assets", async () => {
-    await withPreview("wrangler.access-no-assets.jsonc", 8793, async (body) => {
+    await withWorker("wrangler.access-runtime-no-assets.jsonc", 8793, async (body) => {
       assert.equal(body.accessAvailable, true);
       assert.equal(body.identityEmail, "access-test@example.invalid");
     });
